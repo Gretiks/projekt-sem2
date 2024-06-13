@@ -1,0 +1,10 @@
+﻿  map.cpp
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(6,20): warning C4309: '=': truncation of constant value
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(7,21): warning C4309: '=': truncation of constant value
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(8,21): warning C4309: '=': truncation of constant value
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(9,22): warning C4309: '=': truncation of constant value
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(11,21): warning C4309: '=': truncation of constant value
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(12,22): warning C4309: '=': truncation of constant value
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(15,21): warning C4309: '=': truncation of constant value
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(16,22): warning C4309: '=': truncation of constant value
+  Pacman1vs1.vcxproj -> C:\Users\mtst2\Source\Repos\Gretiks\projekt-sem2\Pacman1vs1\x64\Debug\Pacman1vs1.exe

@@ -2,7 +2,7 @@
 #include <iostream>
 
 class Map {
-	char map_table[11][11];
+	char map_table[12][12];
 
 public:
 	Map(); //stworzy pust¹ mapê - do testów
