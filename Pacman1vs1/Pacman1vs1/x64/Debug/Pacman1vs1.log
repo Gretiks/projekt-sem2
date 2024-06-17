@@ -1,10 +1,43 @@
 ﻿  map.cpp
-C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(6,20): warning C4309: '=': truncation of constant value
-C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(7,21): warning C4309: '=': truncation of constant value
-C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(8,21): warning C4309: '=': truncation of constant value
-C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(9,22): warning C4309: '=': truncation of constant value
-C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(11,21): warning C4309: '=': truncation of constant value
-C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(12,22): warning C4309: '=': truncation of constant value
-C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(15,21): warning C4309: '=': truncation of constant value
-C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(16,22): warning C4309: '=': truncation of constant value
-  Pacman1vs1.vcxproj -> C:\Users\mtst2\Source\Repos\Gretiks\projekt-sem2\Pacman1vs1\x64\Debug\Pacman1vs1.exe
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\headers.h(11,6): error C2061: syntax error: identifier 'string'
+  (compiling source file 'map.cpp')
+  
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\headers.h(11,2): error C2535: 'Map::Map(void)': member function already defined or declared
+  (compiling source file 'map.cpp')
+  C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\headers.h(10,2):
+  see declaration of 'Map::Map'
+  
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(24,6): error C2511: 'Map::Map(std::string)': overloaded member function not found in 'Map'
+  C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\headers.h(4,7):
+  see declaration of 'Map'
+  
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(29,13): error C2597: illegal reference to non-static member 'Map::map_table'
+  C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(29,13):
+  see declaration of 'Map::map_table'
+  
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(29,13): error C3867: 'Map::map_table': non-standard syntax; use '&' to create a pointer to member
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\map.cpp(29,13): error C2568: '[': unable to resolve function overload
+  main.cpp
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\headers.h(11,6): error C2061: syntax error: identifier 'string'
+  (compiling source file 'main.cpp')
+  
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\headers.h(11,2): error C2535: 'Map::Map(void)': member function already defined or declared
+  (compiling source file 'main.cpp')
+  C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\headers.h(10,2):
+  see declaration of 'Map::Map'
+  
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\main.cpp(11,15): error C2440: '<function-style-cast>': cannot convert from 'std::string' to 'Map'
+  C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\main.cpp(11,15):
+  'Map::Map': no overloaded function could convert all the argument types
+  	C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\headers.h(15,1):
+  	could be 'Map::Map(const Map &)'
+  		C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\main.cpp(11,15):
+  		'Map::Map(const Map &)': cannot convert argument 1 from 'std::string' to 'const Map &'
+  			C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\main.cpp(11,16):
+  			Reason: cannot convert from 'std::string' to 'const Map'
+  			C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\main.cpp(11,16):
+  			No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+  	C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\main.cpp(11,15):
+  	while trying to match the argument list '(std::string)'
+  
+  Generating Code...

@@ -1,10 +1,14 @@
 #include "headers.h"
 #include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
 int main() {
-	Map map = Map();
+	string map_name = "test.txt";
+	
+	Map map = Map(map_name);
 
 	map.show();
 
