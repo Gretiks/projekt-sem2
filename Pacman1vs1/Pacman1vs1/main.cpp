@@ -14,14 +14,8 @@ int main() {
 	
 	string map_name = "test.txt";
 	vector<vector<char>> v; // przechowuje wektory ktore maja w sobie kolejne linijki planszy
-	Punkt pkt = Punkt();
 
-	v = read_map(map_name);
-	Player player = Player();
-	v = player.place(v);
-	v = pkt.place(v);
-
-	show(v);
+	gra();
 
 	system("pause");
 

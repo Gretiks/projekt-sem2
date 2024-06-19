@@ -24,6 +24,7 @@ public:
 	Bot();
 };
 
+
 class Punkt :public Point {
 public:
 	virtual vector <vector<char>> place(vector <vector<char>>);
@@ -33,5 +34,4 @@ public:
 
 void show(vector <vector<char>>);
 vector<vector<char>> read_map(string);
-
-int menu();
+int gra();

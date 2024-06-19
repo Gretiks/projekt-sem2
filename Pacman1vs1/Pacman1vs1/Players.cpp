@@ -2,6 +2,11 @@
 
 Player::Player() {
 	x = 1;
+	y = 9;
+}
+
+Bot::Bot() {
+	x = 9;
 	y = 1;
 }
 
