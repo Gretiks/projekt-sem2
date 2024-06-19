@@ -5,15 +5,6 @@
 
 const chrono::milliseconds przerwa(300); // 0.3 s;
 
-void dodanie_punktu(vector<vector<char>> mapa, int punkty) //dodawanie zebranego punktu na mape
-{
-    for(int i = punkty; i < 5; i++)
-    {
-        Punkt P = Punkt();
-        P.place(mapa);
-    }
-}
-
 void print(vector<vector<char>> mapa, int punkty_gracza, int punkty_bota) //wypisywanie aktualnego stanu planszy
 {
     cout << "Gracz  Bot\n";
@@ -41,9 +32,10 @@ int gra()
     // stack<punkt> sciezka; // sciezka do punktu ktora bedzie podazac bot
 
 
-    pair <int, int> punkt; //wspolrzedne wylosowanego kolejnego punktu na mapie 
+    //pair <int, int> punkt; //wspolrzedne wylosowanego kolejnego punktu na mapie 
     Player player = Player();
     Bot bot = Bot();
+    Punkt punkt = Punkt();
 
     //wylosowanie mapy i rozstawienie punktów
     for(auto x: read_map("test.txt"))
@@ -51,6 +43,9 @@ int gra()
 
     plansza = player.place(plansza);
     plansza = bot.place(plansza);
+    for (int i = 0; i < 5; i++) {
+        plansza = punkt.place(plansza);
+    }
 
     char znak = ' '; //zmienna w której przechowywany jest wciśnięty klawisz
     auto ostatni_ruch = chrono::steady_clock::now(); // czas ostatniego ruchu gracza
@@ -98,7 +93,7 @@ int gra()
             if(plansza[player.x-1][ player.y] == '*')
             {
                 punkty_gracza++;
-                dodanie_punktu(plansza, curr_liczba_punktow);
+                plansza = punkt.place(plansza);
                  
                 plansza[ player.x][ player.y] = ' ';
                  player.x--;
@@ -117,7 +112,7 @@ int gra()
             if(plansza[player.x+1][ player.y] == '*')
             {
                 punkty_gracza++;
-                dodanie_punktu(plansza, curr_liczba_punktow);
+                plansza = punkt.place(plansza);
                  
                 plansza[ player.x][ player.y] = ' ';
                  player.x++;
@@ -135,7 +130,7 @@ int gra()
             if(plansza[ player.x][player.y-1] == '*')
             {
                 punkty_gracza++;
-                dodanie_punktu(plansza, curr_liczba_punktow);
+                plansza = punkt.place(plansza);
                  
                 plansza[ player.x][ player.y] = ' ';
                  player.y--;
@@ -153,7 +148,7 @@ int gra()
             if(plansza[ player.x][player.y+1] == '*')
             {
                 punkty_gracza++;
-                dodanie_punktu(plansza, curr_liczba_punktow);
+                plansza = punkt.place(plansza);
                  
                 plansza[ player.x][ player.y] = ' ';
                  player.y++;
