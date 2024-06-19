@@ -6,6 +6,12 @@
 using namespace std;
 
 int main() {
+	int opcja = 0;
+	opcja = menu();
+	if (opcja == 4) {
+		return 0;
+	}
+	
 	string map_name = "test.txt";
 	vector<vector<char>> v; // przechowuje wektory ktore maja w sobie kolejne linijki planszy
 	Punkt pkt = Punkt();

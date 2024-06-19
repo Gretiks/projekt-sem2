@@ -1,2 +1,7 @@
 ﻿  map.cpp
+  main.cpp
+  menu.cpp
+  Players.cpp
+  Generating Code...
+C:\Users\mtst2\source\repos\Gretiks\projekt-sem2\Pacman1vs1\Pacman1vs1\menu.cpp(27): warning C4715: 'menu': not all control paths return a value
   Pacman1vs1.vcxproj -> C:\Users\mtst2\Source\Repos\Gretiks\projekt-sem2\Pacman1vs1\x64\Debug\Pacman1vs1.exe
