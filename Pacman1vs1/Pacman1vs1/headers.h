@@ -24,8 +24,6 @@ public:
 	Bot();
 };
 
-class Punkt :public Point {
-	int id;
 
 class Punkt :public Point {
 public:

@@ -9,8 +9,8 @@ void dodanie_punktu(vector<vector<char>> mapa, int punkty) //dodawanie zebranego
 {
     for(int i = punkty; i < 5; i++)
     {
-        Punkt id = Punkt(id);
-        id.place(mapa);
+        Punkt P = Punkt();
+        P.place(mapa);
     }
 }
 
