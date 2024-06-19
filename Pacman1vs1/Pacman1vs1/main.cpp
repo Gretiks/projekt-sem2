@@ -7,29 +7,16 @@ using namespace std;
 
 int main() {
 	string map_name = "test.txt";
-	char map_table[12][12];
-	/*
-	for (int i = 0; i < 12; i++) {
-		map_table[i][0] = '#';
-		map_table[i][11] = '#';
-	}
-	for (int j = 0; j < 12; j++) {
-		map_table[0][j] = '#';
-		map_table[11][j] = '#';
-	}
-	for (int i = 1; i < 11; i++) {
-		for (int j = 1; j < 11; j++) {
-			map_table[i][j] = ' ';
-		}
-	}
-	*/
-	read_map(map_name, map_table);
+	vector<vector<char>> v; // przechowuje wektory ktore maja w sobie kolejne linijki planszy
+
+
+	read_map(map_name, v);
 	Player player = Player();
-	player.place(map_table);
+	player.place(v);
 
-	show(map_table);
+	show(v);
 
-	//map.show();
+	system("pause");
 
 	return 0;
 }

@@ -5,6 +5,6 @@ Player::Player() {
 	y = 1;
 }
 
-void Player::place(char map_table[12][12]) {
-	map_table[x][y] = 'P';
+void Player::place(vector <vector<char>> v) {
+	v[x][y] = 'P';
 }

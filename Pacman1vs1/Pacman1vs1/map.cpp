@@ -4,22 +4,31 @@
 
 using namespace std;
 
-void read_map(string name, map_table[12][12]) {
-	ifstream file(name);
+vector<vector<char>> read_map(string name, vector<vector<char>> vr) {
+	ifstream plik(name);
+
+	char c = '@'; //zmienna przyjmujaca obecny znak w pliku
+	vector <char> vc; // wektor odpowiedzialny za przechowywanie linijki
 
 	for (int i = 0; i < 12; i++) {
 		for (int j = 0; j < 12; j++) {
-			file.get(map_table[i][j]);
+			plik >> c;
+			vc.push_back(c);
 		}
+		vr.push_back(vc);
+		vc.clear();
 	}
+
+	plik.close();
+	return vr;
 }
 
 
 
-void show(char map_table[12][12]) {
+void show(vector <vector<char>> vs) {
 	for (int i = 0; i < 12; i++) {
 		for (int j = 0; j < 12; j++) {
-			cout << map_table[i][j];
+			cout << vs[i][j];
 		}
 		cout << endl;
 	}
