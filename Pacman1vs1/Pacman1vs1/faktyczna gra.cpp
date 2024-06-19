@@ -5,17 +5,13 @@
 
 const chrono::milliseconds przerwa(300); // 0.3 s;
 
-pair <int,int> dodanie_punktu(vector<vector<char>> mapa) //dodawanie zebranego punktu na mape
+void dodanie_punktu(vector<vector<char>> mapa, int punkty) //dodawanie zebranego punktu na mape
 {
-    int los1 = 0, los2 = 0;
-
-    while(mapa[los1][los2] != ' ')
+    for(int i = punkty; i < 5; i++)
     {
-        los1 = rand()%11;
-        los2 = rand()%11;
+        Punkt id = Punkt(id);
+        id.place(mapa);
     }
-
-    return make_pair(los1, los2);
 }
 
 void print(vector<vector<char>> mapa, int punkty_gracza, int punkty_bota) //wypisywanie aktualnego stanu planszy
@@ -34,22 +30,27 @@ void print(vector<vector<char>> mapa, int punkty_gracza, int punkty_bota) //wypi
 
 int gra()
 {
+
+
     b:
     int punkty_gracza = 0;
     int punkty_bota = 0;
-    int curr_liczba_punktow = 5;
+    int curr_liczba_punktow = 0;
     bool czy_dalej = true; //kontynuowanie gry
+    vector<vector<char>> plansza; // mapa na której trwa rozgrywka
     stack<punkt> sciezka; // sciezka do punktu ktora bedzie podazac bot
 
 
     pair <int, int> punkt; //wspolrzedne wylosowanego kolejnego punktu na mapie 
-    pair <int, int> pozycja_gracza = make_pair(9,1);
-    pair <int, int> pozycja_bota = make_pair(1, 9);
-    vector<vector<char>> plansza; // mapa na której trwa rozgrywka
+    Player player = Player();
+    Bot bot = Bot();
 
     //wylosowanie mapy i rozstawienie punktów
-    for(auto x: mapa())
+    for(auto x: read_map("test.txt"))
         plansza.push_back(x);
+
+    plansza = player.place(plansza);
+    plansza = bot.place(plansza);
 
     char znak = ' '; //zmienna w której przechowywany jest wciśnięty klawisz
     auto ostatni_ruch = chrono::steady_clock::now(); // czas ostatniego ruchu gracza
@@ -71,13 +72,13 @@ int gra()
             plansza[pozycja_bota.first][pozycja_bota.second] = ' ';
             pozycja_bota.first = sciezka.top().y;
             pozycja_bota.second = sciezka.top().x;
-            plansza[pozycja_bota.first][pozycja_bota.second] = 'E';
+            plansza[pozycja_bota.first][pozycja_bota.second] = 'B';
             sciezka.pop();
             if(sciezka.empty())
             {
                 punkty_bota++;
-                punkt = dodanie_punktu(plansza);
-                plansza[punkt.first][punkt.second] = '*';
+                dodanie_punktu(plansza, curr_liczba_punktow);
+                 
             }
             ostatni_ruch = chrono::steady_clock::now();
         }
@@ -94,75 +95,75 @@ int gra()
 
         if(znak == 'w')
         {
-            if(plansza[pozycja_gracza.first-1][pozycja_gracza.second] == '*')
+            if(plansza[player.x-1][ player.y] == '*')
             {
                 punkty_gracza++;
-                punkt = dodanie_punktu(plansza);
-                plansza[punkt.first][punkt.second] = '*';
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = ' ';
-                pozycja_gracza.first--;
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = 'P';
+                dodanie_punktu(plansza, curr_liczba_punktow);
+                 
+                plansza[ player.x][ player.y] = ' ';
+                 player.x--;
+                plansza[ player.x][ player.y] = 'P';
             }
 
-            if(plansza[pozycja_gracza.first-1][pozycja_gracza.second] != '#' && plansza[pozycja_gracza.first-1][pozycja_gracza.second] != 'E') //zabezpiecznie przed wyjsciem poza mape
+            if(plansza[player.x-1][ player.y] != '#' && plansza[player.x-1][ player.y] != 'B') //zabezpiecznie przed wyjsciem poza mape
             {
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = ' ';
-                pozycja_gracza.first--;
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = 'P';
+                plansza[ player.x][ player.y] = ' ';
+                 player.x--;
+                plansza[ player.x][ player.y] = 'P';
             }
         }
         else if(znak == 's')
         {
-            if(plansza[pozycja_gracza.first+1][pozycja_gracza.second] == '*')
+            if(plansza[player.x+1][ player.y] == '*')
             {
                 punkty_gracza++;
-                punkt = dodanie_punktu(plansza);
-                plansza[punkt.first][punkt.second] = '*';
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = ' ';
-                pozycja_gracza.first++;
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = 'P';
+                dodanie_punktu(plansza, curr_liczba_punktow);
+                 
+                plansza[ player.x][ player.y] = ' ';
+                 player.x++;
+                plansza[ player.x][ player.y] = 'P';
             }
-            else if(plansza[pozycja_gracza.first+1][pozycja_gracza.second] != '#' && plansza[pozycja_gracza.first+1][pozycja_gracza.second] != 'E') //zabezpiecznie przed wyjsciem poza mape
+            else if(plansza[player.x+1][ player.y] != '#' && plansza[player.x+1][ player.y] != 'B') //zabezpiecznie przed wyjsciem poza mape
             {
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = ' ';
-                pozycja_gracza.first++;
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = 'P';
+                plansza[ player.x][ player.y] = ' ';
+                 player.x++;
+                plansza[ player.x][ player.y] = 'P';
             }
         }
         else if(znak == 'a')
         {
-            if(plansza[pozycja_gracza.first][pozycja_gracza.second-1] == '*')
+            if(plansza[ player.x][player.y-1] == '*')
             {
                 punkty_gracza++;
-                punkt = dodanie_punktu(plansza);
-                plansza[punkt.first][punkt.second] = '*';
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = ' ';
-                pozycja_gracza.second--;
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = 'P';
+                dodanie_punktu(plansza, curr_liczba_punktow);
+                 
+                plansza[ player.x][ player.y] = ' ';
+                 player.y--;
+                plansza[ player.x][ player.y] = 'P';
             }
-            else if(plansza[pozycja_gracza.first][pozycja_gracza.second-1] != '#' && plansza[pozycja_gracza.first][pozycja_gracza.second-1] != 'E') //zabezpiecznie przed wyjsciem poza mape
+            else if(plansza[ player.x][player.y-1] != '#' && plansza[ player.x][player.y-1] != 'B') //zabezpiecznie przed wyjsciem poza mape
             {
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = ' ';
-                pozycja_gracza.second--;
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = 'P';
+                plansza[ player.x][ player.y] = ' ';
+                 player.y--;
+                plansza[ player.x][ player.y] = 'P';
             }
         }
         else if(znak == 'd')
         {
-            if(plansza[pozycja_gracza.first][pozycja_gracza.second+1] == '*')
+            if(plansza[ player.x][player.y+1] == '*')
             {
                 punkty_gracza++;
-                punkt = dodanie_punktu(plansza);
-                plansza[punkt.first][punkt.second] = '*';
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = ' ';
-                pozycja_gracza.second++;
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = 'P';
+                dodanie_punktu(plansza, curr_liczba_punktow);
+                 
+                plansza[ player.x][ player.y] = ' ';
+                 player.y++;
+                plansza[ player.x][ player.y] = 'P';
             }
-            else if(plansza[pozycja_gracza.first][pozycja_gracza.second+1] != '#' && plansza[pozycja_gracza.first][pozycja_gracza.second+1] != 'E') //zabezpiecznie przed wyjsciem poza mape
+            else if(plansza[ player.x][player.y+1] != '#' && plansza[ player.x][player.y+1] != 'B') //zabezpiecznie przed wyjsciem poza mape
             {
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = ' ';
-                pozycja_gracza.second++;
-                plansza[pozycja_gracza.first][pozycja_gracza.second] = 'P';
+                plansza[ player.x][ player.y] = ' ';
+                 player.y++;
+                plansza[ player.x][ player.y] = 'P';
             }
         }
     }

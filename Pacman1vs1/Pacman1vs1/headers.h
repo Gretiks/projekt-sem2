@@ -30,7 +30,7 @@ class Punkt :public Point {
 public:
 	virtual vector <vector<char>> place(vector <vector<char>>);
 
-	Punkt(int id);
+	Punkt();
 };
 
 void show(vector <vector<char>>);
