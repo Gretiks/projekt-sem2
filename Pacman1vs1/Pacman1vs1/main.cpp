@@ -10,9 +10,9 @@ int main() {
 	vector<vector<char>> v; // przechowuje wektory ktore maja w sobie kolejne linijki planszy
 
 
-	read_map(map_name, v);
+	v = read_map(map_name);
 	Player player = Player();
-	player.place(v);
+	v = player.place(v);
 
 	show(v);
 

@@ -1,19 +1,21 @@
 #include "headers.h"
 #include <fstream>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-vector<vector<char>> read_map(string name, vector<vector<char>> vr) {
+vector<vector<char>> read_map(string name) {
 	ifstream plik(name);
-
-	char c = '@'; //zmienna przyjmujaca obecny znak w pliku
+	
+	string s = "a"; //zmienna przyjmujaca obecny znak w pliku
+	vector<vector<char>> vr;
 	vector <char> vc; // wektor odpowiedzialny za przechowywanie linijki
 
 	for (int i = 0; i < 12; i++) {
-		for (int j = 0; j < 12; j++) {
-			plik >> c;
-			vc.push_back(c);
+		getline(plik, s);
+		for (int j = 0; j < s.size(); j++) {
+			vc.push_back(s[j]);
 		}
 		vr.push_back(vc);
 		vc.clear();
