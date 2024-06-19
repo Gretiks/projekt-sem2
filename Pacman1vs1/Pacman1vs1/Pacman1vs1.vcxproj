@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="map.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Players.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers.h" />

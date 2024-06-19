@@ -1,15 +1,30 @@
 #pragma once
 #include <iostream>
 
-class Map {
+class Character {
 public:
-	
-	char map_table[12][12];
-
-
-	Map(); //stworzy pust¹ mapê - do testów
-	Map(string name); //wczyta mapê o zadanej nazwie z pliku
-	virtual ~Map();
-
-	void show(); //wyœwietli mapê
+	virtual void place(char map_table[12][12]) = 0;
 };
+
+class Player :public Character {
+	int x;
+	int y;
+
+public:
+	virtual void place(char map_table[12][12]);
+
+	Player();
+};
+
+class Bot :public Character {
+	int x;
+	int y;
+
+public:
+	virtual void place(char map_table[12][12]);
+
+	Bot();
+};
+
+void show(char map_table[12][12]);
+void read_map(string name, char map_table[12][12])
