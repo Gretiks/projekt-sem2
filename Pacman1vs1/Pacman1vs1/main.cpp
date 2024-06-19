@@ -8,12 +8,8 @@ using namespace std;
 int main() {
 	string map_name = "test.txt";
 	vector<vector<char>> v; // przechowuje wektory ktore maja w sobie kolejne linijki planszy
-	Punkt pkt = Punkt();
 
-	v = read_map(map_name);
-	v = pkt.place(v);
-
-	show(v);
+	gra();
 
 	system("pause");
 

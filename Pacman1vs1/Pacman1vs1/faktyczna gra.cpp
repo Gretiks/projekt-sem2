@@ -38,7 +38,7 @@ int gra()
     int curr_liczba_punktow = 0;
     bool czy_dalej = true; //kontynuowanie gry
     vector<vector<char>> plansza; // mapa na której trwa rozgrywka
-    stack<punkt> sciezka; // sciezka do punktu ktora bedzie podazac bot
+    // stack<punkt> sciezka; // sciezka do punktu ktora bedzie podazac bot
 
 
     pair <int, int> punkt; //wspolrzedne wylosowanego kolejnego punktu na mapie 
@@ -66,22 +66,22 @@ int gra()
 
         //sekcja bota
 
-        if(roznica_czasu.count() >= przerwa.count())
-        {
-            sciezka = bfs(plansza, pozycja_bota); //stwozenie sciezki dla bota;
-            plansza[pozycja_bota.first][pozycja_bota.second] = ' ';
-            pozycja_bota.first = sciezka.top().y;
-            pozycja_bota.second = sciezka.top().x;
-            plansza[pozycja_bota.first][pozycja_bota.second] = 'B';
-            sciezka.pop();
-            if(sciezka.empty())
-            {
-                punkty_bota++;
-                dodanie_punktu(plansza, curr_liczba_punktow);
+        // if(roznica_czasu.count() >= przerwa.count())
+        // {
+        //     sciezka = bfs(plansza, pozycja_bota); //stwozenie sciezki dla bota;
+        //     plansza[pozycja_bota.first][pozycja_bota.second] = ' ';
+        //     pozycja_bota.first = sciezka.top().y;
+        //     pozycja_bota.second = sciezka.top().x;
+        //     plansza[pozycja_bota.first][pozycja_bota.second] = 'B';
+        //     sciezka.pop();
+        //     if(sciezka.empty())
+        //     {
+        //         punkty_bota++;
+        //         dodanie_punktu(plansza, curr_liczba_punktow);
                  
-            }
-            ostatni_ruch = chrono::steady_clock::now();
-        }
+        //     }
+        //     ostatni_ruch = chrono::steady_clock::now();
+        // }
 
         this_thread::sleep_for(chrono::milliseconds(100));
 

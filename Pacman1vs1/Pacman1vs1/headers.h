@@ -34,3 +34,4 @@ public:
 
 void show(vector <vector<char>>);
 vector<vector<char>> read_map(string);
+int gra();
