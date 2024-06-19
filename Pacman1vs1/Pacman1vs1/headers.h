@@ -27,6 +27,7 @@ public:
 class Punkt :public Point {
 	int id;
 
+class Punkt :public Point {
 public:
 	virtual vector <vector<char>> place(vector <vector<char>>);
 
