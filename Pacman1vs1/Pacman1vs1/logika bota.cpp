@@ -1,10 +1,10 @@
 #include "headers.h"
 #include <queue> //na potrzeby algorytmu bfs
 
-stack<Krok> bfs(vector<vector<char>> mapa, Bot bot)
+stack<Krok> Bot::bfs(vector<vector<char>> mapa, Bot bot)
 {  
 
-     Krok start = Krok(bot.x, bot.y);
+     Krok start = Krok(bot.y, bot.x);
 
     vector<vector<bool>> check (11, vector<bool> (11, false)); //stworzenie tablicy bool o wymiarach 11 na 11 i wypełnienie jest wartościami False
 

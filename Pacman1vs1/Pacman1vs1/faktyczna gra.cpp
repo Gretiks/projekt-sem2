@@ -21,9 +21,6 @@ void print(vector<vector<char>> mapa, int punkty_gracza, int punkty_bota) //wypi
 
 int gra()
 {
-
-
-    b:
     int punkty_gracza = 0;
     int punkty_bota = 0;
     int curr_liczba_punktow = 0;

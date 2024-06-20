@@ -30,6 +30,9 @@
     <ClCompile Include="faktyczna gra.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="logika bota.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers.h">
