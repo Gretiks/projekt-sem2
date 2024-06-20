@@ -6,18 +6,32 @@
 using namespace std;
 
 int main() {
-	int opcja = 0;
-	opcja = menu();
-	if (opcja == 4) {
-		return 0;
+	char input = 'a';
+	menu();
+	cin >> input;
+	while (input != '4') {
+		if (input == '2') {
+			help();
+			menu();
+			cin >> input;
+		}
+		else if (input == '3') {
+			aut();
+			menu();
+			cin >> input;
+		}
+		else if (input == '1') {
+			string map_name = "test.txt";
+			vector<vector<char>> v; // przechowuje wektory ktore maja w sobie kolejne linijki planszy
+
+			gra();
+
+			system("pause");
+		}
+		else {
+			cin >> input;
+			menu();
+		}
 	}
-	
-	string map_name = "test.txt";
-	vector<vector<char>> v; // przechowuje wektory ktore maja w sobie kolejne linijki planszy
-
-	gra();
-
-	system("pause");
-
 	return 0;
 }
