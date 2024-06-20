@@ -1,8 +1,8 @@
 #include "headers.h"
 
 Player::Player() {
-	x = 1;
-	y = 9;
+	x = 9;
+	y = 1;
 }
 
 Bot::Bot() {

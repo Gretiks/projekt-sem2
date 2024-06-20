@@ -4,7 +4,7 @@
 stack<Krok> Bot::bfs(vector<vector<char>> mapa, Bot bot)
 {  
 
-     Krok start = Krok(bot.y, bot.x);
+     Krok start = Krok(bot.x, bot.y);
 
     vector<vector<bool>> check (11, vector<bool> (11, false)); //stworzenie tablicy bool o wymiarach 11 na 11 i wypełnienie jest wartościami False
 

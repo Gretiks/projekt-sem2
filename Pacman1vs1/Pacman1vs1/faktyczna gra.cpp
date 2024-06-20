@@ -41,7 +41,7 @@ int gra()
         plansza.push_back(x);
 
     plansza = player.place(plansza);
-    plansza = bot.place(plansza);
+    // plansza = bot.place(plansza);
     for (int i = 0; i < 5; i++) {
         plansza = punkt.place(plansza);
     }
@@ -71,7 +71,7 @@ int gra()
             if(sciezka.empty())
             {
                 punkty_bota++;
-                punkt.place(plansza);
+                plansza = punkt.place(plansza);
                  
             }
             ostatni_ruch = chrono::steady_clock::now();
