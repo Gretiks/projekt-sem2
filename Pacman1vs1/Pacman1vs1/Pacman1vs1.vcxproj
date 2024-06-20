@@ -138,7 +138,11 @@
     <ClInclude Include="headers.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="test.txt" />
+    <None Include="1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="2.txt" />
+    <Text Include="3.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

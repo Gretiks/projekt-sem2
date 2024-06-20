@@ -19,25 +19,23 @@ void print(vector<vector<char>> mapa, int punkty_gracza, int punkty_bota) //wypi
     }
 }
 
-int gra()
+int gra(string name)
 {
     int punkty_gracza = 0;
     int punkty_bota = 0;
     int curr_liczba_punktow = 0;
-    int win_condition = 10;
+    int win_condition = 30;
     bool czy_dalej = true; //kontynuowanie gry
 
     vector<vector<char>> plansza; // mapa na której trwa rozgrywka
     stack <Krok> sciezka; // sciezka do punktu ktora bedzie podazac bot
 
-
-
     Player player = Player();
     Bot bot = Bot();
     Punkt punkt = Punkt();
 
-    //wylosowanie mapy i rozstawienie punktów
-    for(auto x: read_map("test.txt"))
+    //wybranie i rozstawienie punktów
+    for(auto x: read_map(name))
         plansza.push_back(x);
 
     plansza = player.place(plansza);
@@ -165,7 +163,7 @@ int gra()
         system("cls");
     }
 
-    if(punkty_bota == 30)
+    if(punkty_bota == win_condition)
     cout << "\n\nPRZEGRANA\n\n";
     else
     cout << "\n\nWYGRANA\n\n";

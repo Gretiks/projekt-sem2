@@ -21,7 +21,8 @@ int main() {
 			cin >> input;
 		}
 		else if (input == '1') {
-			gra();
+			string name = menu_map();
+			gra(name);
 			menu();
 			cin >> input;
 		}

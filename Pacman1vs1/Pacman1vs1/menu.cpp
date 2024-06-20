@@ -19,3 +19,19 @@ void aut() {
 	cout << "Autorzy projektu:" << endl << "Mateusz Baginski" << endl << "Maciej Sztucki" << endl;
 	system("Pause");
 }
+
+string menu_map() {
+	system("CLS");
+	char in = 'a';
+	while (in != '1' || in != '2' || in != '3') {
+		system("CLS");
+		cout << "Wybierz mape: 1, 2 lub 3" << endl;
+		cin >> in;
+		if (in == '1')
+			return "1.txt";
+		else if (in == '2')
+			return "2.txt";
+		else if (in == '3')
+			return "3.txt";
+	}
+}

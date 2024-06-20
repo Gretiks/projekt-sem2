@@ -47,7 +47,8 @@ public:
 
 void show(vector <vector<char>>);
 vector<vector<char>> read_map(string);
-int gra();
+int gra(string name);
 void menu();
 void help();
 void aut();
+string menu_map();
