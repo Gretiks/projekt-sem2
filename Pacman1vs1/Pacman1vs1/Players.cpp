@@ -10,6 +10,12 @@ Bot::Bot() {
 	y = 1;
 }
 
+Krok::Krok(int a, int b)
+{
+	x = a;
+	y = b;
+}
+
 vector <vector<char>> Player::place(vector <vector<char>> v) {
 	v[x][y] = 'P';
 	return v;

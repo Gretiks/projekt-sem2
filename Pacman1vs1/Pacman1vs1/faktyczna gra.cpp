@@ -27,12 +27,14 @@ int gra()
     int punkty_gracza = 0;
     int punkty_bota = 0;
     int curr_liczba_punktow = 0;
+    int win_condition = 10;
     bool czy_dalej = true; //kontynuowanie gry
+
     vector<vector<char>> plansza; // mapa na której trwa rozgrywka
-    // stack<punkt> sciezka; // sciezka do punktu ktora bedzie podazac bot
+    stack <Krok> sciezka; // sciezka do punktu ktora bedzie podazac bot
 
 
-    //pair <int, int> punkt; //wspolrzedne wylosowanego kolejnego punktu na mapie 
+
     Player player = Player();
     Bot bot = Bot();
     Punkt punkt = Punkt();
@@ -55,28 +57,28 @@ int gra()
         auto teraz = chrono::steady_clock::now(); //obecny czas;
         auto roznica_czasu = chrono::duration_cast<chrono::milliseconds>(teraz - ostatni_ruch);
 
-        if(punkty_gracza == 30 || punkty_bota == 30) break; //sprawdzenie warunku wygranej/przegranej
+        if(punkty_gracza == win_condition || punkty_bota == win_condition) break; //sprawdzenie warunku wygranej/przegranej
 
         print(plansza, punkty_gracza, punkty_bota);
 
         //sekcja bota
 
-        // if(roznica_czasu.count() >= przerwa.count())
-        // {
-        //     sciezka = bfs(plansza, pozycja_bota); //stwozenie sciezki dla bota;
-        //     plansza[pozycja_bota.first][pozycja_bota.second] = ' ';
-        //     pozycja_bota.first = sciezka.top().y;
-        //     pozycja_bota.second = sciezka.top().x;
-        //     plansza[pozycja_bota.first][pozycja_bota.second] = 'B';
-        //     sciezka.pop();
-        //     if(sciezka.empty())
-        //     {
-        //         punkty_bota++;
-        //         dodanie_punktu(plansza, curr_liczba_punktow);
+        if(roznica_czasu.count() >= przerwa.count())
+        {
+            sciezka = bot.bfs(plansza, bot); //stwozenie sciezki dla bota;
+            plansza[bot.y][bot.x] = ' ';
+            bot.y = sciezka.top().y;
+            bot.x = sciezka.top().x;
+            plansza[bot.y][bot.x] = 'B';
+            sciezka.pop();
+            if(sciezka.empty())
+            {
+                punkty_bota++;
+                punkt.place(plansza);
                  
-        //     }
-        //     ostatni_ruch = chrono::steady_clock::now();
-        // }
+            }
+            ostatni_ruch = chrono::steady_clock::now();
+        }
 
         this_thread::sleep_for(chrono::milliseconds(100));
 
@@ -179,12 +181,5 @@ int gra()
     system("pause");
 
     system("cls");
-    cout << "Czy chcesz grac jeszcze?\n1. Tak\n2. Nie\n";
-
-
-    a:
-    znak = char(_getch()); //przechwytywanie klwisza
-    if(znak == '1') goto b;
-    if(znak == '2') return 0;
-    else goto a;
+    return 0;
 }

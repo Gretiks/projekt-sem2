@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <stack>
 using namespace std;
 
 class Point {
@@ -17,11 +18,22 @@ public:
 	Player();
 };
 
+class Krok {
+	public:
+
+	int x;
+	int y;
+
+	Krok();
+	Krok(int a, int b);
+};
+
 class Bot :public Point {
 public:
 	virtual vector <vector<char>> place(vector <vector<char>>);
 
 	Bot();
+	stack<Krok> bfs(vector<vector<char>>, Bot);
 };
 
 
@@ -31,6 +43,7 @@ public:
 
 	Punkt();
 };
+
 
 void show(vector <vector<char>>);
 vector<vector<char>> read_map(string);

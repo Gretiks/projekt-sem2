@@ -21,17 +21,14 @@ int main() {
 			cin >> input;
 		}
 		else if (input == '1') {
-			string map_name = "test.txt";
-			vector<vector<char>> v; // przechowuje wektory ktore maja w sobie kolejne linijki planszy
-
 			gra();
-
-			system("pause");
+			menu();
+			cin >> input;
 		}
 		else {
 			cin >> input;
 			menu();
 		}
 	}
-	return 0;
+	return -1;
 }

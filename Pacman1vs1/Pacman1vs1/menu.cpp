@@ -10,7 +10,7 @@ void menu() {
 
 void help() {
 	system("CLS");
-	cout << "1. Poruszasz sie za pomoca klawiszy w a s d\n2. Twoim zadaniem jest zebranie 30 punktow przed twoim przeciwnikiem\n3. Znakiem '#' oznaczone sa sciany\n4. Twoja postac oznaczona jest symbolem 'P'\n5. Przeciwnik oznaczony jest symbolem 'E'\n"; << endl;
+	cout << "1. Poruszasz sie za pomoca klawiszy w a s d\n2. Twoim zadaniem jest zebranie 30 punktow przed twoim przeciwnikiem\n3. Znakiem '#' oznaczone sa sciany\n4. Twoja postac oznaczona jest symbolem 'P'\n5. Przeciwnik oznaczony jest symbolem 'E'\n";
 	system("Pause");
 }
 
