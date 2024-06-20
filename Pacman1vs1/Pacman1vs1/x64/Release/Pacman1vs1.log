@@ -1,0 +1,12 @@
+﻿  faktyczna gra.cpp
+  logika bota.cpp
+  map.cpp
+  main.cpp
+  menu.cpp
+  Players.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+C:\Users\mtst2\source\repos\Projekt\projekt-sem2\Pacman1vs1\Pacman1vs1\menu.cpp(37): warning C4715: 'menu_map': not all control paths return a value
+  All 736 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Pacman1vs1.vcxproj -> C:\Users\mtst2\source\repos\Projekt\projekt-sem2\Pacman1vs1\x64\Release\Pacman1vs1.exe
